@@ -1,0 +1,77 @@
+.search {
+  .search-bar {
+    position: relative;
+    display: flex;
+    align-items: center;
+    input {
+      width: 30vw;
+      padding: 0.5rem 1rem;
+
+      @media only screen and (max-width: $mobile) {
+        width: 50vw;
+      }
+    }
+    svg {
+      position: absolute;
+      right: 1rem;
+    }
+  }
+  margin: 4rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  .filter-dropdown {
+    margin: 0 2rem;
+    display: flex;
+    align-items: center;
+    select {
+      padding: 0.5rem 1rem;
+    }
+  }
+}
+.products {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  .product {
+    cursor: pointer;
+    margin: 2rem;
+    width: 35.8rem;
+    border: 0.4px solid #70707063;
+    border-radius: 5px;
+
+    .product-img {
+      background-image: url(../images/white-front-sweater.jpg);
+      background-position: center;
+      background-size: cover;
+      padding: 0.2rem;
+      width: 100%;
+      height: 35.8rem;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      &:hover > img {
+        width: 60%;
+        height: 60%;
+      }
+      img {
+        width: 30%;
+        height: 30%;
+        transition: all 0.9s ease-in-out;
+      }
+    }
+
+    .product-info {
+      padding: 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      h1 {
+        font-size: 2rem;
+        margin-right: 0.5rem;
+      }
+    }
+  }
+}

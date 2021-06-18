@@ -1,0 +1,161 @@
+footer {
+  margin-top: 10rem;
+
+  width: 100%;
+  height: 100%;
+  background-color: rgba(241, 241, 241, 0.39);
+}
+.footer-first-line {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  align-items: center;
+  padding: 2rem;
+  margin: 0 4rem;
+  letter-spacing: 1px;
+  border-bottom: 1px solid grey;
+}
+.contact-location,
+.contact-number,
+.contact-mail {
+  display: flex;
+  align-items: center;
+  padding: 1rem;
+}
+.contact-location p,
+.contact-number p,
+.contact-mail p {
+  font-size: 1.2rem;
+}
+.contact-location {
+  svg {
+    font-size: 2rem;
+    margin-right: 1rem;
+  }
+}
+.contact-number {
+  svg {
+    font-size: 3rem;
+    margin-right: 1rem;
+  }
+}
+.contact-mail {
+  svg {
+    font-size: 3rem;
+    margin-right: 1rem;
+  }
+}
+
+.footer-content {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  padding: 1rem 4rem 4rem 4rem;
+  margin: 0 2rem;
+}
+
+.left-content,
+.mid-content,
+.right-content {
+  padding: 2rem;
+}
+
+.footer-logo {
+  display: flex;
+  align-content: center;
+
+  margin: 1rem;
+}
+.footer-logo img {
+  box-sizing: content-box;
+  width: 5rem;
+}
+.footer-social-icon span {
+  display: block;
+
+  font-size: 1.4rem;
+}
+.footer-social-icon {
+  flex-direction: column;
+  svg {
+    margin: 1rem 1rem 1rem 0;
+    font-size: 2rem;
+  }
+}
+.footer-text {
+  color: gray;
+
+  font-size: 1.3rem;
+  margin-bottom: 1rem;
+}
+
+.mid-content ul {
+  list-style: none;
+  font-size: 1.3rem;
+}
+.mid-content li a {
+  text-decoration: none;
+
+  color: gray;
+}
+.mid-content li {
+  margin: 1rem 0;
+}
+.footer-widget-heading h2 {
+  letter-spacing: 1px;
+  padding-bottom: 1rem;
+  position: relative;
+  border-bottom: 2px solid $yellow;
+}
+
+.mid-content li a:hover {
+  color: $yellow;
+  text-decoration: underline;
+}
+.footer-text {
+  margin-top: 2rem;
+
+  width: 30rem;
+}
+
+.subscribe-form {
+  position: relative;
+  overflow: hidden;
+}
+.subscribe-form input {
+  width: 100%;
+  padding: 1rem 1rem;
+  background: #d5d5d5;
+  border: none;
+  color: #fff;
+}
+.subscribe-form button {
+  position: absolute;
+  right: 0;
+  background: $yellow;
+  padding: 1rem 1rem;
+  border: 1px solid $yellow;
+
+  top: 0;
+}
+.subscribe-form button i {
+  color: #fff;
+  font-size: 22px;
+  transform: rotate(-6deg);
+}
+.cr {
+  background-color: $darkgrey;
+  height: 4rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.copyright p {
+  font-size: 1.4rem;
+  letter-spacing: 1px;
+  color: white;
+  a {
+    color: $yellow;
+  }
+}
