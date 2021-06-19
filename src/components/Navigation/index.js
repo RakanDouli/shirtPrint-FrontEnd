@@ -1,9 +1,13 @@
-import React from "react";
+import React, { useState } from "react";
 import { FiShoppingCart } from "react-icons/fi";
 import { Link } from "react-router-dom";
 
 import logo from "../../images/logo.svg";
 const Navigation = () => {
+  const [BurgerMenu, setBurgerMenu] = useState(false);
+  BurgerMenu
+    ? (document.body.style.overflow = "hidden")
+    : (document.body.style.overflow = "");
   return (
     <nav>
       <div className="logo">
@@ -12,7 +16,7 @@ const Navigation = () => {
         </Link>
       </div>
       <div className="navbar">
-        <div className="nav-items">
+        <div className={`nav-items ${BurgerMenu ? "nav-item-active" : ""}`}>
           <Link to="/AboutUs">About us</Link>
           <Link to="/contact">Contact us</Link>
           <Link to="/user/login">Log in</Link>
@@ -20,6 +24,11 @@ const Navigation = () => {
             Designer
           </Link>
         </div>
+        <button
+          onClick={() => setBurgerMenu(!BurgerMenu)}
+          className={`burger-menu ${BurgerMenu ? "burger-active" : ""}`}>
+          <span></span> <span></span> <span></span>
+        </button>
         <button className="basket">
           <FiShoppingCart />
         </button>
