@@ -11,16 +11,25 @@ const Navigation = () => {
   return (
     <nav>
       <div className="logo">
-        <Link to="/">
+        <Link to="/" onClick={() => setBurgerMenu(false)}>
           <img src={logo} alt="" />
         </Link>
       </div>
       <div className="navbar">
         <div className={`nav-items ${BurgerMenu ? "nav-item-active" : ""}`}>
-          <Link to="/AboutUs">About us</Link>
-          <Link to="/contact">Contact us</Link>
-          <Link to="/user/login">Log in</Link>
-          <Link className="designerNav" to="/designer/login">
+          <Link to="/AboutUs" onClick={() => setBurgerMenu(false)}>
+            About us
+          </Link>
+          <Link to="/contact" onClick={() => setBurgerMenu(false)}>
+            Contact us
+          </Link>
+          <Link to="/user/login" onClick={() => setBurgerMenu(false)}>
+            Log in
+          </Link>
+          <Link
+            className="designerNav"
+            to="/designer/login"
+            onClick={() => setBurgerMenu(false)}>
             Designer
           </Link>
         </div>

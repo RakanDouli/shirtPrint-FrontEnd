@@ -63,6 +63,11 @@ nav {
         a {
           font-size: 2.3rem;
           font-weight: 700;
+          &:focus {
+            background-color: #fff;
+            color: $darkgrey;
+            text-decoration: underline;
+          }
         }
         .designerNav {
           padding: 0;
@@ -93,25 +98,26 @@ nav {
           margin: 0.3rem;
         }
       }
-    }
-    .burger-active {
-      span {
-        &:nth-child(1) {
-          transform: rotate(45deg) translate(6px, 6px);
-        }
-        &:nth-child(2) {
-          transform: translateX(10px);
-          opacity: 0;
-        }
-        &:nth-child(3) {
-          transform: rotate(-45deg) translate(6px, -6px);
+      .burger-active {
+        span {
+          &:nth-child(1) {
+            transform: rotate(45deg) translate(6px, 6px);
+          }
+          &:nth-child(2) {
+            transform: translateX(10px);
+            opacity: 0;
+          }
+          &:nth-child(3) {
+            transform: rotate(-45deg) translate(6px, -6px);
+          }
         }
       }
+      .nav-item-active {
+        right: 0;
+        position: fixed;
+      }
     }
-    .nav-item-active {
-      right: 0;
-      position: fixed;
-    }
+
     .basket {
       display: flex;
       align-items: center;
