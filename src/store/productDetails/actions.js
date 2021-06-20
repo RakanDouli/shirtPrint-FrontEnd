@@ -8,7 +8,8 @@ export const productDetailsAction = (productsDetails) => ({
   payload: productsDetails,
 });
 
-export const fechproductDetails = (id) => {
+export const fechproductDetails = (id, isDetailsOpen) => {
+  console.log(id);
   return async (dispatch, getState) => {
     try {
       const response = await axios.get(`${apiUrl}/products/${id}`);

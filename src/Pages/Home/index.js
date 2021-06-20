@@ -6,7 +6,7 @@ import { selectProducts } from "../../store/products/selectors";
 import { useEffect } from "react";
 import { fetchproducts } from "../../store/products/actions";
 import ProductComponents from "../../components/productComponent";
-// import ProductDetail from "../../components/productDetails";
+import ProductDetail from "../../components/productDetails";
 
 const Products = () => {
   const dispatch = useDispatch();
@@ -73,7 +73,7 @@ const Products = () => {
         </div>
       </section>
       <section className="products">
-        {/* <ProductDetail /> */}
+        <ProductDetail />
         {search.length === 0 && <h1>No product matches your search term</h1>}
         {search.map((product) => {
           return (

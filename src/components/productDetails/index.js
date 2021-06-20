@@ -1,19 +1,14 @@
-import React, { useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { fechproductDetails } from "../../store/productDetails/actions";
+import React from "react";
+import { useSelector } from "react-redux";
+
 import { selectProductDetails } from "../../store/productDetails/selectors";
-import { useParams } from "react-router-dom";
+
 import greyshirt from "../../images/grey-folded-t-shirt.jpg";
 import whiteshirt from "../../images/folded-white.jpg";
 import { FiShoppingCart } from "react-icons/fi";
 const ProductDetail = () => {
-  const dispatch = useDispatch();
   const productDetails = useSelector(selectProductDetails);
-  console.log(productDetails.id);
-  const { id } = useParams();
-  useEffect(() => {
-    dispatch(fechproductDetails(id));
-  }, [dispatch, id]);
+  // change state
 
   // shirt chose
   function isOdd(num) {
@@ -32,7 +27,7 @@ const ProductDetail = () => {
             <img src={productDetails.imageurl} alt="" loading="lazy" />
           </div>
           <div className="details">
-            <div class="product-info">
+            <div className="product-info">
               <h1>Title {productDetails.title}</h1>
               <h2>Designer: {productDetails.designer?.name}</h2>
               <p>Tag: {productDetails.tags}</p>

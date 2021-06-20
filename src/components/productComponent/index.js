@@ -1,7 +1,10 @@
-import React from "react";
+import React, { useState } from "react";
 import whiteshirt from "../../images/white-front-sweater.jpg";
 import greenshirt from "../../images/green-front-sweater.jpg";
 import { Link } from "react-router-dom";
+
+import { fechproductDetails } from "../../store/productDetails/actions";
+import { useDispatch } from "react-redux";
 
 const ProductComponents = ({ id, title, imageurl, designer, tags, price }) => {
   //background choose
@@ -9,9 +12,16 @@ const ProductComponents = ({ id, title, imageurl, designer, tags, price }) => {
     return num % 2;
   }
   const shirtbg = isOdd(id) ? whiteshirt : greenshirt;
+  const [isDetailsOpen, setIsDetialsOpen] = useState(false);
+  // loaddetails
+  const dispatch = useDispatch();
+  const loadProcutHandeler = (id) => {
+    dispatch(fechproductDetails(id, isDetailsOpen));
+    setIsDetialsOpen(true);
+  };
 
   return (
-    <Link to={`/product/${id}`}>
+    <Link to="" onClick={() => loadProcutHandeler(id)}>
       <div className="product">
         <div
           className="product-img"
