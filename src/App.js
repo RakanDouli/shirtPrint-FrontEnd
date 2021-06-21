@@ -10,6 +10,8 @@ import AboutUs from "./Pages/AboutUs";
 import Contact from "./Pages/Contact";
 import Home from "./Pages/Home";
 import Footer from "./components/footer";
+import Modal from "react-modal";
+Modal.setAppElement("#root");
 function App() {
   return (
     <div>

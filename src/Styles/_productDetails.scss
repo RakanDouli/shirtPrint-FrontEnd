@@ -10,10 +10,11 @@
   z-index: 100;
   top: 50%;
   left: 50%;
+  transition: all 0.3s ease;
   transform: translate(-50%, -50%);
   align-items: center;
   box-shadow: -1px 4px 10px -5px #00000070;
-  border: 0.4px solid #70707063;
+  // border: 0.4px solid #70707063;
   @media only screen and (max-width: $fablet) {
     width: 80vw;
     height: 100%;
@@ -21,9 +22,12 @@
   }
   .closebtn {
     position: absolute;
+
     right: 2rem;
     top: 1rem;
-    font-size: 2rem;
+    padding: 0.3rem;
+    cursor: pointer;
+    font-size: 2.5rem;
     @media only screen and (max-width: $mobile) {
       color: white;
     }
@@ -52,11 +56,11 @@
     }
 
     @media only screen and (max-width: $tablet) {
-      width: 100%;
-      img {
-        width: 40%;
-        height: 50%;
-      }
+      // width: 100%;
+      // img {
+      //   width: 40%;
+      //   height: 50%;
+      // }
     }
 
     @media only screen and (max-width: $mobile) {

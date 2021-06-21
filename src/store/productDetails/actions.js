@@ -13,7 +13,7 @@ export const fechproductDetails = (id, isDetailsOpen) => {
   return async (dispatch, getState) => {
     try {
       const response = await axios.get(`${apiUrl}/products/${id}`);
-      console.log("Product Details-->", response);
+      // console.log("Product Details-->", response);
       dispatch(productDetailsAction(response.data.product));
     } catch (e) {
       console.log(e.message);

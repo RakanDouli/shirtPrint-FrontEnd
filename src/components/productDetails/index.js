@@ -6,7 +6,8 @@ import { selectProductDetails } from "../../store/productDetails/selectors";
 import greyshirt from "../../images/grey-folded-t-shirt.jpg";
 import whiteshirt from "../../images/folded-white.jpg";
 import { FiShoppingCart } from "react-icons/fi";
-const ProductDetail = () => {
+
+const ProductDetail = ({ onClose }) => {
   const productDetails = useSelector(selectProductDetails);
   // change state
 
@@ -20,9 +21,12 @@ const ProductDetail = () => {
     <section className="productDetails">
       {productDetails && (
         <>
-          <div className="closebtn">x</div>
+          <div className="closebtn" onClick={onClose}>
+            x
+          </div>
           <div
             className="image "
+            loading="lazy"
             style={{ backgroundImage: `url(${shirtbg})` }}>
             <img src={productDetails.imageurl} alt="" loading="lazy" />
           </div>

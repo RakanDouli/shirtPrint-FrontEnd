@@ -5,40 +5,67 @@ import { Link } from "react-router-dom";
 
 import { fechproductDetails } from "../../store/productDetails/actions";
 import { useDispatch } from "react-redux";
-
+import ProductDetail from "../productDetails";
+import Modal from "react-modal";
 const ProductComponents = ({ id, title, imageurl, designer, tags, price }) => {
   //background choose
   function isOdd(num) {
     return num % 2;
   }
   const shirtbg = isOdd(id) ? whiteshirt : greenshirt;
-  const [isDetailsOpen, setIsDetialsOpen] = useState(false);
+
+  const [modalIsOpen, setModalIsOpen] = useState(false);
+
   // loaddetails
   const dispatch = useDispatch();
   const loadProcutHandeler = (id) => {
-    dispatch(fechproductDetails(id, isDetailsOpen));
-    setIsDetialsOpen(true);
+    if (setModalIsOpen(false)) {
+    }
+    dispatch(fechproductDetails(id));
+    setModalIsOpen(true);
   };
 
   return (
-    <Link to="" onClick={() => loadProcutHandeler(id)}>
-      <div className="product">
-        <div
-          className="product-img"
-          style={{ backgroundImage: `url(${shirtbg})` }}>
-          <img className="painting" src={imageurl} alt="" loading="lazy" />
-        </div>
+    <>
+      <Modal
+        style={{
+          overlay: { backgroundColor: "#a5a5a5a6", zIndex: "100" },
+          content: {
+            position: "relative",
 
-        <div className="product-info">
-          <div className="text">
-            <h2>Title:{title}</h2>
-            <h4>By: {designer}</h4>
-            <p>{tags}</p>
+            border: "none",
+            background: "transparent",
+            overflow: "auto",
+            WebkitOverflowScrolling: "touch",
+            borderRadius: "0",
+            outline: "none",
+            padding: "0px",
+          },
+        }}
+        isOpen={modalIsOpen}
+        onClose={() => setModalIsOpen(false)}
+        onRequestClose={() => setModalIsOpen(false)}>
+        <ProductDetail onClose={() => setModalIsOpen(false)} />
+      </Modal>
+      <Link to="" onClick={() => loadProcutHandeler(id)}>
+        <div className="product">
+          <div
+            className="product-img"
+            style={{ backgroundImage: `url(${shirtbg})` }}>
+            <img className="painting" src={imageurl} alt="" loading="lazy" />
           </div>
-          <h1>€ {price}</h1>
+
+          <div className="product-info">
+            <div className="text">
+              <h2>Title:{title}</h2>
+              <h4>By: {designer}</h4>
+              <p>{tags}</p>
+            </div>
+            <h1>€ {price}</h1>
+          </div>
         </div>
-      </div>
-    </Link>
+      </Link>
+    </>
   );
 };
 

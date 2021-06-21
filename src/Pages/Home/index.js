@@ -6,24 +6,23 @@ import { selectProducts } from "../../store/products/selectors";
 import { useEffect } from "react";
 import { fetchproducts } from "../../store/products/actions";
 import ProductComponents from "../../components/productComponent";
-import ProductDetail from "../../components/productDetails";
 
 const Products = () => {
   const dispatch = useDispatch();
   const products = useSelector(selectProducts);
   const [searchTerm, setSearchTerm] = useState("");
   const [filter, setFilter] = useState("");
-
+  // console.log(products);
   useEffect(() => {
     dispatch(fetchproducts());
   }, [dispatch]);
 
-  // const Ascending = products.sort((a, b) =>
+  // const Ascending = [...products].sort((a, b) =>
   //   a.cost + a.addedcost > b.cost + b.addedcost ? 1 : -1
   // );
   // console.log("filterasc", Ascending);
 
-  // const Descending = products.sort((a, b) =>
+  // const Descending = [...products].sort((a, b) =>
   //   a.cost + a.addedcost < b.cost + b.addedcost ? 1 : -1
   // );
   // console.log("filterdesc", Descending);
@@ -73,21 +72,24 @@ const Products = () => {
         </div>
       </section>
       <section className="products">
-        <ProductDetail />
-        {search.length === 0 && <h1>No product matches your search term</h1>}
-        {search.map((product) => {
-          return (
-            <ProductComponents
-              key={product.id}
-              id={product.id}
-              title={product.title}
-              imageurl={product.imageurl}
-              designer={product.designer.name}
-              tags={product.tags}
-              price={product.cost + product.addedcost}
-            />
-          );
-        })}
+        {products.length === 0 ? (
+          <h1>No product found </h1>
+        ) : (
+          search.map((product) => {
+            return (
+              <ProductComponents
+                key={product.id}
+                id={product.id}
+                title={product.title}
+                imageurl={product.imageurl}
+                designer={product.designer.name}
+                tags={product.tags}
+                price={product.cost + product.addedcost}
+              />
+            );
+          })
+        )}
+        {}
       </section>
     </div>
   );

@@ -1,7 +1,7 @@
 .banner {
   height: 40rem;
   background: linear-gradient(135deg, $yellow 55%, #fcbd10);
-
+  overflow: hidden;
   display: flex;
   align-items: center;
   .bg-background {
@@ -17,9 +17,9 @@
       }
 
       @media only screen and (max-width: $mobile) {
-        width: 25rem;
+        width: 23rem;
         height: 30rem;
-        margin-left: 1vw;
+        margin-left: -5vw;
       }
     }
     .greyshirt {
@@ -33,7 +33,7 @@
       @media only screen and (max-width: $mobile) {
         width: 25rem;
         height: 30rem;
-        margin-left: 1vw;
+        margin-left: -6vw;
       }
     }
   }
