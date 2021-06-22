@@ -52,7 +52,7 @@
     }
     button {
       padding: 0.6rem 1.2rem;
-      margin: 2rem 0;
+      margin: 3rem 0;
       border: none;
       background-color: $darkgrey;
       color: #fff;
@@ -77,6 +77,17 @@
       label {
         font-size: 1.5rem;
       }
+    }
+    .half {
+      display: flex;
+      justify-content: space-between;
+      label,
+      input {
+        width: 98%;
+      }
+    }
+    h2 {
+      margin: 2rem 0;
     }
   }
 }
