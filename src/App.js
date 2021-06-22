@@ -10,9 +10,18 @@ import AboutUs from "./Pages/AboutUs";
 import Contact from "./Pages/Contact";
 import Home from "./Pages/Home";
 import Footer from "./components/footer";
+import { useDispatch } from "react-redux";
+import { getUserWithStoredToken } from "./store/user/actions";
 import Modal from "react-modal";
+import { useEffect } from "react";
+
 Modal.setAppElement("#root");
+
 function App() {
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(getUserWithStoredToken());
+  }, [dispatch]);
   return (
     <div>
       <Navigation />

@@ -1,0 +1,83 @@
+@import "./_config";
+.login {
+  display: block;
+  margin: 8rem auto;
+  display: flex;
+  justify-content: center;
+  form {
+    border: 0.4px solid #70707063;
+    width: 90%;
+    max-width: 770px;
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 8rem;
+    align-items: center;
+    border-radius: 6px;
+    box-shadow: -1px 3px 10px -5px #00000070;
+
+    h1 {
+      width: 100%;
+      padding: 1rem;
+      background-color: $orange;
+      border: 0.4px solid #70707063;
+      box-shadow: -1px 3px 10px -5px #00000070;
+      text-align: center;
+      margin: 5rem 0;
+      font-size: 2.4rem;
+      text-transform: uppercase;
+    }
+    label {
+      display: block;
+      font-size: 2rem;
+      text-transform: uppercase;
+      font-weight: 500;
+      margin: 1rem 0;
+    }
+    div {
+      width: 50%;
+      @media only screen and (max-width: $tablet) {
+        width: 70%;
+      }
+      @media only screen and (max-width: $mobile) {
+        width: 90%;
+      }
+      input {
+        width: 100%;
+        padding: 0.7rem 1rem;
+        border: 0.4px solid #70707063;
+        &:focus {
+          outline: 0 none;
+          border: 1px solid $orange;
+        }
+      }
+    }
+    button {
+      padding: 0.6rem 1.2rem;
+      margin: 2rem 0;
+      border: none;
+      background-color: $darkgrey;
+      color: #fff;
+      transition: all 0.3s ease;
+      text-transform: uppercase;
+      &:hover {
+        background-color: $orange;
+      }
+    }
+    p {
+      a {
+        text-transform: uppercase;
+        margin-left: 0.4rem;
+        color: $darkgrey;
+        font-weight: 700;
+      }
+    }
+    @media only screen and (max-width: $mobile) {
+      h1 {
+        font-size: 2rem;
+      }
+      label {
+        font-size: 1.5rem;
+      }
+    }
+  }
+}

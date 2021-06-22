@@ -1,13 +1,17 @@
 import React, { useState } from "react";
-import { FiShoppingCart } from "react-icons/fi";
+import { FiShoppingCart, FiUser, FiUserCheck } from "react-icons/fi";
+import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
-
 import logo from "../../images/logo.svg";
+import { selectUser } from "../../store/user/selectors";
 const Navigation = () => {
   const [BurgerMenu, setBurgerMenu] = useState(false);
   BurgerMenu
     ? (document.body.style.overflow = "hidden")
     : (document.body.style.overflow = "");
+
+  const user = useSelector(selectUser);
+  console.log("user", user.name);
   return (
     <nav>
       <div className="logo">
@@ -23,8 +27,12 @@ const Navigation = () => {
           <Link to="/contact" onClick={() => setBurgerMenu(false)}>
             Contact us
           </Link>
-          <Link to="/user/login" onClick={() => setBurgerMenu(false)}>
-            Log in
+          <Link
+            className={user.name ? "welcome" : ""}
+            to="/user/login"
+            onClick={() => setBurgerMenu(false)}>
+            {user.name === null ? <FiUser /> : <FiUserCheck />}
+            {user.name ? user.name : "Log In"}
           </Link>
           <Link
             className="designerNav"
