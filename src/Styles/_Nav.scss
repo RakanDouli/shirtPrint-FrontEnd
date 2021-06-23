@@ -71,12 +71,6 @@ nav {
             text-decoration: underline;
           }
         }
-
-        .designerNav {
-          padding: 0;
-          background-color: #fff;
-          color: $darkgrey;
-        }
       }
       .burger-menu {
         width: 3rem;
@@ -144,7 +138,8 @@ nav {
     // color: #fff !important;
     min-width: 14rem;
     position: relative;
-
+    overflow: hidden;
+    text-overflow: ellipsis;
     svg {
       margin-right: 0.6rem;
     }
@@ -164,5 +159,43 @@ nav {
       bottom: 1rem;
       left: 5.3rem;
     }
+  }
+}
+.designerNav {
+  overflow: hidden;
+  text-overflow: ellipsis;
+
+  padding: 0;
+  background-color: #fff;
+  width: 145.61px;
+  position: relative;
+  color: $darkgrey;
+  @media only screen and (max-width: $fablet) {
+    width: auto;
+    background-color: transparent !important;
+    color: $darkgrey !important;
+  }
+  svg {
+    position: absolute !important;
+    top: 2.4rem;
+    left: 1.8rem;
+  }
+}
+.loginactive {
+  &::before {
+    content: "Welcome";
+    position: absolute;
+    font-size: 1rem;
+    top: 0.9rem;
+    left: 4rem;
+  }
+  &::after {
+    content: "LOG OUT";
+    position: absolute;
+    font-size: 1rem;
+    font-weight: 500;
+    color: $redish !important;
+    bottom: 0.6rem;
+    left: 4rem;
   }
 }

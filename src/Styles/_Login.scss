@@ -1,9 +1,12 @@
-.signup {
+@import "./_config";
+.login {
   display: block;
-  margin: 8rem auto;
+  padding: 8rem 0 12rem 0;
   display: flex;
   justify-content: center;
+
   form {
+    background-color: #fff;
     border: 0.4px solid #70707063;
     width: 90%;
     max-width: 770px;
@@ -52,7 +55,7 @@
     }
     button {
       padding: 0.6rem 1.2rem;
-      margin: 3rem 0;
+      margin: 2rem 0;
       border: none;
       background-color: $darkgrey;
       color: #fff;
@@ -78,16 +81,12 @@
         font-size: 1.5rem;
       }
     }
-    .half {
-      display: flex;
-      justify-content: space-between;
-      label,
-      input {
-        width: 98%;
-      }
-    }
-    h2 {
-      margin: 2rem 0;
-    }
   }
+}
+.designerbg {
+  background-image: url(../images/19742.jpg);
+  background-size: cover;
+  backdrop-filter: greyscale(1);
+  background-repeat: no-repeat;
+  // filter: grayscale(1);
 }

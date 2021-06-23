@@ -14,6 +14,7 @@ import { useDispatch } from "react-redux";
 import { getUserWithStoredToken } from "./store/user/actions";
 import Modal from "react-modal";
 import { useEffect } from "react";
+import DesingerHome from "./Pages/DesignerHome";
 
 Modal.setAppElement("#root");
 
@@ -29,6 +30,7 @@ function App() {
         <Route exact path="/" component={Home} />
         <Route path="/contact" component={Contact} />
         <Route path="/aboutus" component={AboutUs} />
+        <Route path="/designer/homepage" component={DesingerHome} />
         <Route path="/designer/signup" component={DesignerSignup} />
         <Route path="/designer/login" component={DesignerLogin} />
         <Route path="/user/signup" component={UserSignup} />

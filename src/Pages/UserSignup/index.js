@@ -81,8 +81,8 @@ const UserSignup = () => {
           <input
             value={street}
             onChange={(event) => setStreet(event.target.value)}
-            type="email"
-            placeholder="Enter email"
+            type="text"
+            placeholder="Enter Street Name"
             required
           />
         </div>
@@ -92,8 +92,8 @@ const UserSignup = () => {
             <input
               value={houseNo}
               onChange={(event) => setHoseNo(event.target.value)}
-              type="email"
-              placeholder="Enter email"
+              type="number"
+              placeholder="Enter House NO."
               required
             />
           </div>
@@ -101,9 +101,11 @@ const UserSignup = () => {
             <label>Post Code</label>
             <input
               value={postCode}
-              onChange={(event) => setPostCode(event.target.value)}
-              type="email"
-              placeholder="Enter email"
+              onChange={(event) =>
+                setPostCode(event.target.value.toLocaleUpperCase())
+              }
+              type="text"
+              placeholder="Enter postCode"
               required
             />
           </div>
@@ -114,8 +116,8 @@ const UserSignup = () => {
             <input
               value={city}
               onChange={(event) => setCity(event.target.value)}
-              type="email"
-              placeholder="Enter email"
+              type="text"
+              placeholder="Enter City Name"
               required
             />
           </div>
@@ -125,7 +127,7 @@ const UserSignup = () => {
               value={land}
               onChange={(event) => setLand(event.target.value)}
               type="email"
-              placeholder="Enter email"
+              placeholder="Enter Country Name"
               required
             />
           </div>
