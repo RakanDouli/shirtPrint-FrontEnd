@@ -1,5 +1,5 @@
 import { FETCH_PRODUCT_DETAILS } from "./actions";
-const initialState = {};
+const initialState = null;
 
 const reducer = (state = initialState, action) => {
   switch (action.type) {

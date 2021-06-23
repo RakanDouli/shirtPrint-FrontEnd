@@ -5,6 +5,8 @@ import { Link, useHistory } from "react-router-dom";
 import logo from "../../images/logo.svg";
 import { selectToken, selectUser } from "../../store/user/selectors";
 import { logOut } from "../../store/user/actions";
+import DesignerHome from "../../Pages/DesignerHome";
+import { designerlogOut } from "../../store/designer/actions";
 import {
   selectDesigner,
   selectDesignerToken,
@@ -23,12 +25,20 @@ const Navigation = () => {
   const userlogin_out = () => {
     if (token) {
       dispatch(logOut()) && history.push("/");
-
+      setBurgerMenu(false);
       console.log(history);
     } else {
       setBurgerMenu(false);
 
       history.push("/");
+    }
+  };
+  const designerLoginout = () => {
+    if (designerToken) {
+      dispatch(designerlogOut()) && history.push("/");
+      setBurgerMenu(false);
+    } else {
+      setBurgerMenu(false);
     }
   };
   return (
@@ -54,9 +64,9 @@ const Navigation = () => {
             {token ? user.name : "Log In"}
           </Link>
           <Link
-            className={`designerNav ${designerToken ? "loginactive" : ""} `}
+            className={`designerNav ${designerToken ? "loginactive" : ""}`}
             to="/designer/login"
-            onClick={() => setBurgerMenu(false)}>
+            onClick={designerLoginout}>
             {!designerToken ? "" : <FiUserCheck />}
             {designerToken ? designer.name : "Designer"}
           </Link>
@@ -66,7 +76,7 @@ const Navigation = () => {
           className={`burger-menu ${BurgerMenu ? "burger-active" : ""}`}>
           <span></span> <span></span> <span></span>
         </button>
-        {designerToken ? null : (
+        {DesignerHome ? null : (
           <button className="basket">
             <FiShoppingCart />
           </button>

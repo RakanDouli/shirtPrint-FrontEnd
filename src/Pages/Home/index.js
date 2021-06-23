@@ -6,7 +6,7 @@ import { selectProducts } from "../../store/products/selectors";
 import { useEffect } from "react";
 import { fetchproducts } from "../../store/products/actions";
 import ProductComponents from "../../components/productComponent";
-
+import { BeatLoader } from "react-spinners";
 const Products = () => {
   const dispatch = useDispatch();
   const products = useSelector(selectProducts);
@@ -72,8 +72,11 @@ const Products = () => {
         </div>
       </section>
       <section className="products">
-        {products.length === 0 ? (
-          <h1>No product found </h1>
+        {/* {!products} */}
+        {!products ? (
+          <BeatLoader />
+        ) : search.length === 0 ? (
+          "No products found"
         ) : (
           search.map((product) => {
             return (

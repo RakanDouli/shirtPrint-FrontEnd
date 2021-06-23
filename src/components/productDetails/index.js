@@ -2,7 +2,7 @@ import React from "react";
 import { useSelector } from "react-redux";
 
 import { selectProductDetails } from "../../store/productDetails/selectors";
-
+import { BeatLoader } from "react-spinners";
 import greyshirt from "../../images/grey-folded-t-shirt.jpg";
 import whiteshirt from "../../images/folded-white.jpg";
 import { FiShoppingCart } from "react-icons/fi";
@@ -15,11 +15,15 @@ const ProductDetail = ({ onClose }) => {
   function isOdd(num) {
     return num % 2;
   }
-  const shirtbg = isOdd(productDetails.id) ? whiteshirt : greyshirt;
+  const shirtbg = isOdd(productDetails?.id) ? whiteshirt : greyshirt;
 
   return (
     <section className="productDetails">
-      {productDetails && (
+      {productDetails === null ? (
+        <div style={{ margin: "0 auto" }}>
+          <BeatLoader />
+        </div>
+      ) : (
         <>
           <div className="closebtn" onClick={onClose}>
             x
