@@ -142,8 +142,9 @@ nav {
   }
   .welcome {
     // color: #fff !important;
-
+    min-width: 14rem;
     position: relative;
+
     svg {
       margin-right: 0.6rem;
     }
@@ -152,7 +153,16 @@ nav {
       position: absolute;
       font-size: 1rem;
       top: 1rem;
-      left: 5.2rem;
+      left: 5.3rem;
+    }
+    &::after {
+      content: "LOG OUT";
+      position: absolute;
+      font-size: 1rem;
+      font-weight: 500;
+      color: $redish !important;
+      bottom: 1rem;
+      left: 5.3rem;
     }
   }
 }

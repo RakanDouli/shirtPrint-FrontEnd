@@ -1,17 +1,31 @@
 import React, { useState } from "react";
 import { FiShoppingCart, FiUser, FiUserCheck } from "react-icons/fi";
-import { useSelector } from "react-redux";
-import { Link } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { Link, useHistory } from "react-router-dom";
 import logo from "../../images/logo.svg";
-import { selectUser } from "../../store/user/selectors";
+import { selectToken, selectUser } from "../../store/user/selectors";
+import { logOut } from "../../store/user/actions";
+
 const Navigation = () => {
   const [BurgerMenu, setBurgerMenu] = useState(false);
+  const history = useHistory();
   BurgerMenu
     ? (document.body.style.overflow = "hidden")
     : (document.body.style.overflow = "");
-
+  const dispatch = useDispatch();
+  const token = useSelector(selectToken);
   const user = useSelector(selectUser);
-  console.log("user", user.name);
+  const userlogin_out = () => {
+    if (token) {
+      dispatch(logOut()) && history.push("/");
+
+      console.log(history);
+    } else {
+      setBurgerMenu(false);
+
+      history.push("/");
+    }
+  };
   return (
     <nav>
       <div className="logo">
@@ -28,11 +42,11 @@ const Navigation = () => {
             Contact us
           </Link>
           <Link
-            className={user.name ? "welcome" : ""}
-            to="/user/login"
-            onClick={() => setBurgerMenu(false)}>
-            {user.name === null ? <FiUser /> : <FiUserCheck />}
-            {user.name ? user.name : "Log In"}
+            className={token ? "welcome" : ""}
+            to={token ? "" : "/user/login"}
+            onClick={userlogin_out}>
+            {!token ? <FiUser /> : <FiUserCheck />}
+            {token ? user.name : "Log In"}
           </Link>
           <Link
             className="designerNav"
