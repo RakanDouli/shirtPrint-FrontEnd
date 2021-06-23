@@ -5,7 +5,7 @@ import { Link, useHistory } from "react-router-dom";
 import logo from "../../images/logo.svg";
 import { selectToken, selectUser } from "../../store/user/selectors";
 import { logOut } from "../../store/user/actions";
-import DesignerHome from "../../Pages/DesignerHome";
+
 import { designerlogOut } from "../../store/designer/actions";
 import {
   selectDesigner,
@@ -29,7 +29,6 @@ const Navigation = () => {
       console.log(history);
     } else {
       setBurgerMenu(false);
-
       history.push("/");
     }
   };
@@ -76,11 +75,9 @@ const Navigation = () => {
           className={`burger-menu ${BurgerMenu ? "burger-active" : ""}`}>
           <span></span> <span></span> <span></span>
         </button>
-        {DesignerHome ? null : (
-          <button className="basket">
-            <FiShoppingCart />
-          </button>
-        )}
+        <button className="basket">
+          <FiShoppingCart />
+        </button>
       </div>
     </nav>
   );

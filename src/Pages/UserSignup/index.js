@@ -28,11 +28,7 @@ const UserSignup = () => {
 
   function submitForm(event) {
     event.preventDefault();
-    const adress = ` ${street},
-    ${houseNo},
-    ${postCode},
-    ${city},
-    ${land}`;
+    const adress = ` ${street}, ${houseNo}, ${postCode}, ${city}, ${land}`;
     console.log(adress);
     dispatch(signUp(name, email, password, adress));
     setEmail("");

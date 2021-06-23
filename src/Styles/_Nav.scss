@@ -164,7 +164,6 @@ nav {
 .designerNav {
   overflow: hidden;
   text-overflow: ellipsis;
-
   padding: 0;
   background-color: #fff;
   width: 145.61px;
@@ -172,6 +171,7 @@ nav {
   color: $darkgrey;
   @media only screen and (max-width: $fablet) {
     width: auto;
+
     background-color: transparent !important;
     color: $darkgrey !important;
   }

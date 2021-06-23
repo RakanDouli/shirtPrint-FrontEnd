@@ -30,7 +30,7 @@ const UserLogin = () => {
   return (
     <section className="login">
       <form>
-        <h1> Memebers Log in</h1>
+        <h1> Users' Log in</h1>
         <div>
           <label>E-mail :</label>
           <input

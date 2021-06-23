@@ -28,11 +28,7 @@ const DesignerSignup = () => {
 
   function submitForm(event) {
     event.preventDefault();
-    const adress = ` ${street},
-    ${houseNo},
-    ${postCode},
-    ${city},
-    ${land}`;
+    const adress = ` ${street}, ${houseNo}, ${postCode}, ${city}, ${land}`;
     console.log(adress);
     dispatch(designersignUp(name, email, password, adress, bankaccount));
     setEmail("");
@@ -79,7 +75,9 @@ const DesignerSignup = () => {
           <label>Bank</label>
           <input
             value={bankaccount}
-            onChange={(event) => setBankaccount(event.target.value)}
+            onChange={(event) =>
+              setBankaccount(event.target.value.toUpperCase())
+            }
             type="text"
             placeholder="Fill in you Bank IBAN"
             required
@@ -101,9 +99,7 @@ const DesignerSignup = () => {
             <label>House No.</label>
             <input
               value={houseNo}
-              onChange={(event) =>
-                setHoseNo(event.target.value.toLocaleUpperCase())
-              }
+              onChange={(event) => setHoseNo(event.target.value)}
               type="number"
               placeholder="Enter House NO."
               required
@@ -114,7 +110,7 @@ const DesignerSignup = () => {
             <input
               value={postCode}
               onChange={(event) =>
-                setPostCode(event.target.value.toLocaleUpperCase())
+                setPostCode(event.target.value.toUpperCase())
               }
               type="text"
               placeholder="Enter postCode"

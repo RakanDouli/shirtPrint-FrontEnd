@@ -8,14 +8,14 @@ const DesignerLogin = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const dispatch = useDispatch();
-  const token = useSelector(selectDesignerToken);
+  const designerToken = useSelector(selectDesignerToken);
   const history = useHistory();
 
   useEffect(() => {
-    if (token !== null) {
+    if (designerToken !== null) {
       history.push("/designer/homepage");
     }
-  }, [token, history]);
+  }, [designerToken, history]);
 
   function submitForm(event) {
     console.log("hi");
