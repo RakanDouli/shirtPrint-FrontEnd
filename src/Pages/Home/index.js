@@ -72,7 +72,6 @@ const Products = () => {
         </div>
       </section>
       <section className="products">
-        {/* {!products} */}
         {!products ? (
           <BeatLoader />
         ) : search.length === 0 ? (

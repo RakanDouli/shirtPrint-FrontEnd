@@ -11,8 +11,12 @@ import {
   selectDesigner,
   selectDesignerToken,
 } from "../../store/designer/selectors";
+import OrderList from "../orderlist";
 const Navigation = () => {
   const [BurgerMenu, setBurgerMenu] = useState(false);
+
+  const [openShoppingList, setOpenShoppingList] = useState(false);
+
   const history = useHistory();
   BurgerMenu
     ? (document.body.style.overflow = "hidden")
@@ -75,9 +79,15 @@ const Navigation = () => {
           className={`burger-menu ${BurgerMenu ? "burger-active" : ""}`}>
           <span></span> <span></span> <span></span>
         </button>
-        <button className="basket">
+        <button
+          className="basket"
+          onClick={() => setOpenShoppingList(!openShoppingList)}>
           <FiShoppingCart />
         </button>
+        <OrderList
+          onclose={() => setOpenShoppingList(false)}
+          changeClass={openShoppingList ? "OrderList-active" : ""}
+        />
       </div>
     </nav>
   );

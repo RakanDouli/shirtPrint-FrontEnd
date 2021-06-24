@@ -43,6 +43,7 @@ nav {
         padding: 2rem 4rem;
         background-color: $darkgrey;
         color: #fff;
+        margin: 0;
         &:focus {
           text-decoration: underline;
         }
@@ -119,13 +120,14 @@ nav {
       display: flex;
       align-items: center;
       justify-content: center;
-      padding: 2.2rem 3.2rem 1.6rem 2rem;
+      padding: 2.2rem 3.2rem 1.6rem 2.4rem;
+      margin-left: -0.4rem;
       border: none;
       background-color: transparent;
       svg {
         font-size: 2.5rem;
       }
-      &:focus {
+      &:active {
         background-color: $darkgrey;
         height: 100%;
         svg {

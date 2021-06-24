@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { useSelector } from "react-redux";
 
 import { selectProductDetails } from "../../store/productDetails/selectors";
@@ -6,10 +6,26 @@ import { BeatLoader } from "react-spinners";
 import greyshirt from "../../images/grey-folded-t-shirt.jpg";
 import whiteshirt from "../../images/folded-white.jpg";
 import { FiShoppingCart } from "react-icons/fi";
+import { Link } from "react-router-dom";
+import { selectToken } from "../../store/user/selectors";
 
 const ProductDetail = ({ onClose }) => {
   const productDetails = useSelector(selectProductDetails);
-  // change state
+  const token = useSelector(selectToken);
+
+  const [logInAsk, setlogInAsk] = useState(false);
+  // Selet items
+  const [size, setSize] = useState("");
+  const [type, setType] = useState("");
+  const [color, setColor] = useState("");
+
+  const addOrderHandler = () => {
+    if (token) {
+      console.log(type, size, color);
+    } else {
+      setlogInAsk(true);
+    }
+  };
 
   // shirt chose
   function isOdd(num) {
@@ -44,7 +60,10 @@ const ProductDetail = ({ onClose }) => {
             </div>
             <div className="typeselector">
               <label htmlFor="type">Type</label>
-              <select id="type">
+              <select
+                id="type"
+                value={type}
+                onChange={(e) => setType(e.target.value)}>
                 <option value="" disabled>
                   Select
                 </option>
@@ -56,7 +75,10 @@ const ProductDetail = ({ onClose }) => {
             </div>
             <div className="colorselector">
               <label htmlFor="color">Color</label>
-              <select id="color">
+              <select
+                id="color"
+                value={color}
+                onChange={(e) => setColor(e.target.value)}>
                 <option value="" disabled>
                   Select
                 </option>
@@ -70,7 +92,10 @@ const ProductDetail = ({ onClose }) => {
             </div>
             <div className="sizeselector">
               <label htmlFor="size">size</label>
-              <select id="color" name="size">
+              <select
+                id="color"
+                value={size}
+                onChange={(e) => setSize(e.target.value)}>
                 <option value="" disabled>
                   Select
                 </option>
@@ -82,11 +107,22 @@ const ProductDetail = ({ onClose }) => {
               </select>
             </div>
             <div className="price-add">
-              <button>
+              <button type="submit" onClick={addOrderHandler}>
                 + <FiShoppingCart />
               </button>
               <h1> € {productDetails.cost + productDetails.addedcost}</h1>
             </div>
+            {logInAsk ? (
+              <div className="loginwarn">
+                <h3>
+                  *Your are not signed in: Please
+                  <Link to="/user/login"> LOG IN </Link> or
+                  <Link to="/user/signup"> SIGN UP </Link> first.
+                </h3>
+              </div>
+            ) : (
+              ""
+            )}
           </div>
         </>
       )}

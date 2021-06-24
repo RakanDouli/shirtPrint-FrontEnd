@@ -5,6 +5,9 @@ const banner = () => {
   return (
     <div className="banner">
       <div className="bg-background">
+        <div className="stylebg">
+          <div className="text">{/* <h1>Print</h1> */}</div>
+        </div>
         <div className="blackshirt">
           <img src={blackshirt} alt="" />
         </div>
@@ -14,11 +17,10 @@ const banner = () => {
       </div>
       <div className="designer-line">
         <div className="designer-line-text">
-        <h1>JOIN OUR TEAM</h1>
-        <p>share your art</p>
-      </div>
+          <h1>JOIN OUR TEAM</h1>
+          <p>share your art</p>
         </div>
-       
+      </div>
     </div>
   );
 };

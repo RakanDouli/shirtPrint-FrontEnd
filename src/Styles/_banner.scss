@@ -6,7 +6,30 @@
   align-items: center;
   .bg-background {
     display: flex;
-
+    // .text {
+    //   height: 1px;
+    //   position: relative;
+    //   h1 {
+    //     width: 500%;
+    //     display: block;
+    //     top: -13rem;
+    //     text-transform: uppercase;
+    //     height: 90%;
+    //     font-size: 55vh;
+    //     position: absolute;
+    //     color: $yellow;
+    //     text-shadow: 1px 10px 20px rgba(90, 90, 90, 0.363);
+    //     // animation: anm 20s infinite;
+    //   }
+    //   @keyframes anm {
+    //     from {
+    //       left: 150rem;
+    //     }
+    //     to {
+    //       left: -200rem;
+    //     }
+    //   }
+    // }
     .blackshirt {
       width: 30rem;
       margin-left: 10vw;
