@@ -31,14 +31,14 @@ const DesingerHome = () => {
   }, [designerToken, history, dispatch]);
 
   const designer = useSelector(selectDesigner);
-  console.log("designer.id", designer.id);
+  // console.log("designer.id", designer.id);
   const products = useSelector(selectProducts);
-  console.log("product", products);
-  console.log(designer.id);
+  // console.log("product", products);
+  // console.log(designer.id);
   const filtered = products?.filter(
     (product) => product.designerId === designer.id
   );
-  console.log("fileterd", filtered);
+  // console.log("fileterd", filtered);
   function uploadImage(e) {
     const files = e.target.files;
     const formData = new FormData();
@@ -47,20 +47,20 @@ const DesingerHome = () => {
     axios
       .post("https://api.cloudinary.com/v1_1/douli1234/image/upload", formData)
       .then((res) => {
-        console.log("image cloudinary", res.data.url);
+        // console.log("image cloudinary", res.data.url);
         setImageurl(res.data.url);
       });
   }
   const submitForm = (e) => {
     e.preventDefault();
-    const cost = 30;
+
     dispatch(
       postProduct({
         title,
         imageurl,
         tags,
         description,
-        cost,
+
         addedcost,
       })
     );

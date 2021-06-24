@@ -103,5 +103,84 @@
       background-color: $darkgrey;
       margin: 2rem 0;
     }
+    .Historyproducts {
+      display: flex;
+      justify-content: center;
+      border-bottom: 1px solid rgba(126, 126, 126, 0.493);
+      &:last-child {
+        border-bottom: none;
+      }
+      @media only screen and (max-width: $mobile) {
+        flex-direction: column;
+        align-items: center;
+      }
+      .Image {
+        width: 25rem;
+        min-width: 25rem;
+        padding: 1rem;
+        margin: 2rem;
+        height: 25rem;
+        display: flex;
+        justify-content: center;
+        background-color: rgb(236, 236, 236);
+        border: 1px solid rgba(126, 126, 126, 0.493);
+        border-radius: 5px;
+        img {
+          width: 100%;
+          height: 100%;
+          object-fit: contain;
+        }
+      }
+      .product-info {
+        padding: 1rem 4rem;
+        margin: 1rem;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        list-style: none;
+        font-size: 1.3rem;
+        input {
+          padding: 0.4rem;
+          width: 100%;
+          &[type="submit"] {
+            padding: 0.3rem;
+            width: 8rem;
+            height: 2.9rem;
+            margin-top: 1.8rem;
+            border: none;
+            background-color: $orange;
+            &:hover {
+              background-color: $darkgrey;
+              color: #fff;
+            }
+          }
+        }
+      }
+    }
+    .buttons {
+      display: flex;
+      justify-content: space-between;
+      margin: 1rem 0;
+      button {
+        padding: 0.6rem 1.2rem;
+        margin: 2rem 0;
+        border: none;
+        background-color: $darkgrey;
+        color: #fff;
+        transition: all 0.3s ease;
+        text-transform: uppercase;
+        cursor: pointer;
+        &:hover {
+          background-color: $orange;
+        }
+        &:last-child {
+          background-color: $redish;
+          &:hover {
+            background-color: $orange;
+          }
+        }
+      }
+    }
   }
 }
