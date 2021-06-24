@@ -12,6 +12,7 @@ import Home from "./Pages/Home";
 import Footer from "./components/footer";
 import { useDispatch } from "react-redux";
 import { getUserWithStoredToken } from "./store/user/actions";
+import { designertokenStillValid } from "./store/designer/actions";
 import Modal from "react-modal";
 import { useEffect } from "react";
 import DesingerHome from "./Pages/DesignerHome";
@@ -22,6 +23,7 @@ function App() {
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(getUserWithStoredToken());
+    dispatch(designertokenStillValid());
   }, [dispatch]);
   return (
     <div>

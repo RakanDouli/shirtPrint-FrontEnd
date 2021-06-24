@@ -19,7 +19,7 @@ const designerloginSuccess = (designerWithToken) => {
   };
 };
 
-const designertokenStillValid = (designerWithoutToken) => ({
+export const designertokenStillValid = (designerWithoutToken) => ({
   type: DESIGNER_TOKEN_STILL_VALID,
   payload: designerWithoutToken,
 });
@@ -79,7 +79,7 @@ export const designerlogin = (email, password) => {
   };
 };
 
-export const getUserWithStoredToken = () => {
+export const getDesignerWithStoredToken = () => {
   return async (dispatch, getState) => {
     // get token from the state
     const token = selectDesignerToken(getState());
@@ -94,7 +94,7 @@ export const getUserWithStoredToken = () => {
       const response = await axios.get(`${apiUrl}/designer/me`, {
         headers: { Authorization: `Bearer ${token}` },
       });
-      console.log("response", response);
+
       // token is still valid
       dispatch(designertokenStillValid(response.data));
       dispatch(appDoneLoading());

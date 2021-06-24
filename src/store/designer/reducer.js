@@ -21,7 +21,7 @@ const reducer = (state = initialState, action) => {
       return { ...initialState, token: null };
 
     case DESIGNER_TOKEN_STILL_VALID:
-      console.log("action.payload", action.payload);
+      // console.log("action.payload", action.payload, state);
       return { ...state, ...action.payload };
 
     default:

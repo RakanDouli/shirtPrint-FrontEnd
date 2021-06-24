@@ -29,18 +29,19 @@ export const productPostSuccess = (product) => ({
   type: PORODUCT_POST_SUCCESS,
   payload: product,
 });
-export const postProduct = (
+export const postProduct = ({
   title,
   tags,
   cost,
   imageurl,
   addedcost,
-  description
-) => {
+  description,
+}) => {
   return async (dispatch, getState) => {
+    console.log("data", title, tags, cost, imageurl, addedcost, description);
     try {
-      const { Token } = selectDesignerToken(getState());
-
+      const Token = selectDesignerToken(getState());
+      console.log("token", Token);
       const response = await axios.post(
         `${apiUrl}/products/`,
         {
