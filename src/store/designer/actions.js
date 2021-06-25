@@ -37,7 +37,7 @@ export const designersignUp = (name, email, password, adress, bankaccount) => {
         adress,
         bankaccount,
       });
-      console.log("response", response);
+      // console.log("response", response);
       dispatch(designerloginSuccess(response.data));
       dispatch(showMessageWithTimeout("success", true, "account created"));
       dispatch(appDoneLoading());

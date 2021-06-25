@@ -37,7 +37,7 @@ export const signUp = (name, email, password, adress) => {
         password,
         adress,
       });
-      console.log("response", response);
+      // console.log("response", response);
       dispatch(loginSuccess(response.data));
       dispatch(showMessageWithTimeout("success", true, "account created"));
       dispatch(appDoneLoading());
@@ -95,7 +95,7 @@ export const getUserWithStoredToken = () => {
       const response = await axios.get(`${apiUrl}/user/me`, {
         headers: { Authorization: `Bearer ${token}` },
       });
-      console.log("response", response);
+      // console.log("response", response);
       // token is still valid
       dispatch(tokenStillValid(response.data));
       dispatch(appDoneLoading());
