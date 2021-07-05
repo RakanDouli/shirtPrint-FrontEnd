@@ -1,28 +1,52 @@
 import React, { useState } from "react";
+import { useDispatch } from "react-redux";
+import {
+  deleteProduct,
+  patchProduct,
+} from "../../store/productDetails/actions";
 
 const Historyproducts = ({
   title,
+  id,
   imageurl,
   tags,
   description,
   cost,
   addedcost,
 }) => {
+  console.log(id);
   const [tagName, setTagName] = useState(false);
+  const dispatch = useDispatch();
   const editHandler = (e) => {
     setTagName(true);
+    console.log("clicked");
   };
   const cancel = () => {
     setTagName(false);
   };
   // Patch and submit
-  const [editTitle, setEditTitle] = useState("");
-  const [editTags, setEditTags] = useState("");
-  const [editAddedcost, setEditAddedcost] = useState("");
-  const [editDescription, setEditDescription] = useState("");
+  const [editTitle, setEditTitle] = useState(title);
+  const [editTags, setEditTags] = useState(tags);
+  const [editAddedcost, setEditAddedcost] = useState(addedcost);
+  const [editDescription, setEditDescription] = useState(description);
+  const submitHandler = () => {
+    dispatch(
+      patchProduct({
+        title: editTitle,
+        tags: editTags,
+        id,
+        addedcost: parseInt(editAddedcost),
+        description: editDescription,
+      })
+    );
 
-  const submitHandler = () => {};
+    setTagName(false);
+  };
 
+  // delete
+  const deleteHandler = () => {
+    dispatch(deleteProduct({ id }));
+  };
   return (
     <div className="Historyproducts">
       <div className="Image">
@@ -100,7 +124,7 @@ const Historyproducts = ({
           ) : (
             <button onClick={editHandler}>Edit</button>
           )}
-          <button>Delete</button>
+          <button onClick={deleteHandler}>Delete</button>
         </li>
       </ul>
     </div>
