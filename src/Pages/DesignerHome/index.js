@@ -70,6 +70,7 @@ const DesingerHome = () => {
     setAddedconst("");
     setDescription("");
     setTags("");
+    window.location.reload();
   };
   return (
     <div className="DesignerHome">

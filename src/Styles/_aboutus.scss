@@ -1,0 +1,41 @@
+.overons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin: 10rem 0;
+  @media only screen and (max-width: $fablet) {
+    margin: 6rem 0;
+    .over-mij {
+      width: 90%;
+    }
+    .over-bedrijf {
+      width: 90%;
+    }
+  }
+  .over-mij {
+    width: 70%;
+
+    h1 {
+      font-size: 2rem;
+      margin-bottom: 2rem;
+      color: $orange;
+    }
+    p {
+      font-size: 1.5rem;
+      text-align: justify;
+    }
+  }
+  .over-bedrijf {
+    width: 70%;
+    h1 {
+      margin: 2rem 0;
+      color: $orange;
+    }
+
+    p {
+      text-align: justify;
+      font-size: 1.5rem;
+    }
+  }
+}
