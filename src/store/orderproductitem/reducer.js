@@ -4,7 +4,8 @@ const initialState = null;
 const reducer = (state = initialState, action) => {
   switch (action.type) {
     case ORDERPRODUCTITEM_POST_SUCCESS:
-      return { ...action.payload };
+      console.log("state", state);
+      return [...action.payload];
     default:
       return state;
   }

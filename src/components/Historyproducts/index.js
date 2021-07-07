@@ -11,7 +11,7 @@ const Historyproducts = ({
   imageurl,
   tags,
   description,
-  cost,
+
   addedcost,
 }) => {
   console.log(id);
@@ -41,6 +41,8 @@ const Historyproducts = ({
     );
 
     setTagName(false);
+
+    window.location.reload();
   };
 
   // delete

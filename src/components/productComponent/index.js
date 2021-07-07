@@ -45,7 +45,7 @@ const ProductComponents = ({ id, title, imageurl, designer, tags, price }) => {
         isOpen={modalIsOpen}
         onClose={() => setModalIsOpen(false)}
         onRequestClose={() => setModalIsOpen(false)}>
-        <ProductDetail onClose={() => setModalIsOpen(false)} />
+        <ProductDetail productId={id} onClose={() => setModalIsOpen(false)} />
       </Modal>
       <Link to="" onClick={() => loadProcutHandeler(id)}>
         <div className="product">

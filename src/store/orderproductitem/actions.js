@@ -15,10 +15,9 @@ export const postOrderProductItem = ({
   type,
   quantity,
   productId,
-  orderId,
 }) => {
   return async (dispatch, getState) => {
-    console.log("data", size, color, type, quantity, productId, orderId);
+    console.log("data", size, color, type, quantity, productId);
     try {
       const Token = selectToken(getState());
       // console.log("token", Token);
@@ -30,7 +29,6 @@ export const postOrderProductItem = ({
           type,
           quantity,
           productId,
-          orderId,
         },
         {
           headers: {
@@ -47,7 +45,7 @@ export const postOrderProductItem = ({
           3000
         )
       );
-      dispatch(orderProductItemAction(response.data.order_product_items));
+      dispatch(orderProductItemAction(response.data.neworders));
     } catch (e) {
       console.log(e.message);
     }

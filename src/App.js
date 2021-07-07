@@ -22,11 +22,8 @@ Modal.setAppElement("#root");
 function App() {
   const dispatch = useDispatch();
   useEffect(() => {
-    if (getUserWithStoredToken) {
-      dispatch(getUserWithStoredToken());
-    } else if (getDesignerWithStoredToken) {
-      dispatch(getDesignerWithStoredToken());
-    }
+    dispatch(getUserWithStoredToken());
+    dispatch(getDesignerWithStoredToken());
   }, [dispatch]);
 
   return (

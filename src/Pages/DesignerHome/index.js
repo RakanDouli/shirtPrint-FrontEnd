@@ -10,6 +10,7 @@ import {
 import { selectProducts } from "../../store/products/selectors";
 import { fetchproducts } from "../../store/products/actions";
 import Historyproducts from "../../components/Historyproducts";
+import { selectProductDetails } from "../../store/productDetails/selectors";
 
 const DesingerHome = () => {
   const [title, setTitle] = useState("");
@@ -29,7 +30,8 @@ const DesingerHome = () => {
       history.push("/designer/homepage");
     }
   }, [designerToken, history, dispatch]);
-
+  const pro = useSelector(selectProductDetails);
+  console.log("update", pro);
   const designer = useSelector(selectDesigner);
   // console.log("designer.id", designer.id);
   const products = useSelector(selectProducts);
@@ -60,7 +62,6 @@ const DesingerHome = () => {
         imageurl,
         tags,
         description,
-
         addedcost,
       })
     );

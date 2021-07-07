@@ -7,14 +7,14 @@ import greyshirt from "../../images/grey-folded-t-shirt.jpg";
 import whiteshirt from "../../images/folded-white.jpg";
 import { FiShoppingCart } from "react-icons/fi";
 import { Link } from "react-router-dom";
-import { selectToken, selectUser } from "../../store/user/selectors";
+import { selectToken } from "../../store/user/selectors";
 import { postOrderProductItem } from "../../store/orderproductitem/actions";
 
-const ProductDetail = ({ onClose }) => {
+const ProductDetail = ({ productId, onClose }) => {
   const productDetails = useSelector(selectProductDetails);
   const token = useSelector(selectToken);
-  const user = useSelector(selectUser);
-  console.log(user.id);
+  // const user = useSelector(selectUser);
+
   const [logInAsk, setlogInAsk] = useState(false);
   // Selet items
   const [size, setSize] = useState("");
@@ -23,15 +23,13 @@ const ProductDetail = ({ onClose }) => {
   const dispatch = useDispatch();
   const addOrderHandler = () => {
     if (token) {
-      console.log(type, size, color);
       dispatch(
         postOrderProductItem({
           size,
           color,
           type,
           quantity: 1,
-          productId: user.id,
-          orderId: productDetails?.id,
+          productId,
         })
       );
       setSize("");

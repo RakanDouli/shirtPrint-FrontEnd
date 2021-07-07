@@ -5,7 +5,7 @@ import {
 } from "./actions";
 
 const initialState = {
-  token: localStorage.getItem("token"),
+  token: localStorage.getItem("designerToken"),
   name: null,
   email: null,
 };
@@ -13,11 +13,11 @@ const initialState = {
 const reducer = (state = initialState, action) => {
   switch (action.type) {
     case DESIGNER_LOGIN_SUCCESS:
-      localStorage.setItem("token", action.payload.token);
+      localStorage.setItem("designerToken", action.payload.token);
       return { ...state, ...action.payload };
 
     case DESIGNER_LOG_OUT:
-      localStorage.removeItem("token");
+      localStorage.removeItem("designerToken");
       return { ...initialState, token: null };
 
     case DESIGNER_TOKEN_STILL_VALID:

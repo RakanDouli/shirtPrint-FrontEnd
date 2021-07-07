@@ -119,7 +119,7 @@ export const patchProduct = ({
           3000
         )
       );
-      dispatch(productPostSuccess(response.data.productDetails));
+      // dispatch(productPatchAction(response.data));
     } catch (e) {
       console.log(e.message);
     }
@@ -144,7 +144,7 @@ export const deleteProduct = ({ id }) => {
           },
         }
       );
-      console.log("eidit product==>", response);
+      console.log("deleted product==>", response);
       dispatch(
         showMessageWithTimeout(
           " deleting success",
@@ -153,7 +153,7 @@ export const deleteProduct = ({ id }) => {
           3000
         )
       );
-      dispatch(productPostSuccess(response.data.productDetails));
+      dispatch(productDeleteAction(response.data.productDetails));
     } catch (e) {
       console.log(e.message);
     }
