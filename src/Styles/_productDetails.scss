@@ -13,6 +13,7 @@
   transition: all 0.3s ease;
   transform: translate(-50%, -50%);
   align-items: center;
+
   box-shadow: -1px 4px 10px -5px #00000070;
   // border: 0.4px solid #70707063;
   @media only screen and (max-width: $fablet) {
@@ -20,6 +21,7 @@
     height: 100%;
     flex-direction: column;
     overflow-y: scroll;
+    justify-content: center;
   }
   .closebtn {
     position: absolute;
@@ -59,8 +61,8 @@
     @media only screen and (max-width: $tablet) {
       width: 100%;
       img {
-        width: 35%;
-        height: 35%;
+        width: 20rem;
+        height: 20rem;
       }
     }
 
@@ -68,16 +70,15 @@
       width: 100%;
       img {
         width: 35%;
-        height: 35%;
+        height: 40%;
       }
     }
   }
   .details {
-    padding: 3rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
     margin: 0 auto;
-    height: 100%;
-
-    min-width: 320px;
     .product-info {
       & > * {
         margin: 0.7rem 0;
@@ -100,11 +101,14 @@
       font-weight: 700;
       width: 6rem;
     }
+    select {
+      width: 50%;
+    }
     .price-add {
       display: flex;
       justify-content: space-between;
       align-items: center;
-
+      margin-top: 2rem;
       button {
         background-color: $yellow;
         color: $darkgrey;

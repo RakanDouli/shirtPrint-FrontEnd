@@ -10,7 +10,6 @@ import {
 import { selectProducts } from "../../store/products/selectors";
 import { fetchproducts } from "../../store/products/actions";
 import Historyproducts from "../../components/Historyproducts";
-import { selectProductDetails } from "../../store/productDetails/selectors";
 
 const DesingerHome = () => {
   const [title, setTitle] = useState("");
@@ -19,7 +18,7 @@ const DesingerHome = () => {
   const [imageurl, setImageurl] = useState("");
   const [addedcost, setAddedconst] = useState("");
   const [description, setDescription] = useState("");
-
+  const [check, setCheck] = useState(false);
   const dispatch = useDispatch();
   const designerToken = useSelector(selectDesignerToken);
   const history = useHistory();
@@ -30,9 +29,9 @@ const DesingerHome = () => {
       history.push("/designer/homepage");
     }
   }, [designerToken, history, dispatch]);
-  const pro = useSelector(selectProductDetails);
-  console.log("update", pro);
+
   const designer = useSelector(selectDesigner);
+  console.log(designer);
   // console.log("designer.id", designer.id);
   const products = useSelector(selectProducts);
   // console.log("product", products);
@@ -55,22 +54,25 @@ const DesingerHome = () => {
   }
   const submitForm = (e) => {
     e.preventDefault();
-
-    dispatch(
-      postProduct({
-        title,
-        imageurl,
-        tags,
-        description,
-        addedcost,
-      })
-    );
-    setImageurl("");
-    setTitle("");
-    setAddedconst("");
-    setDescription("");
-    setTags("");
-    window.location.reload();
+    if (title && imageurl && tags && description && addedcost) {
+      dispatch(
+        postProduct({
+          title,
+          imageurl,
+          tags,
+          description,
+          addedcost,
+        })
+      );
+      setImageurl("");
+      setTitle("");
+      setAddedconst("");
+      setDescription("");
+      setTags("");
+      window.location.reload();
+    } else {
+      setCheck(true);
+    }
   };
   return (
     <div className="DesignerHome">
@@ -78,7 +80,18 @@ const DesingerHome = () => {
       <div className="createproduct">
         <form>
           <div>
-            <label>Title :</label>
+            <label>Title</label>
+            {!title && check ? (
+              <h3
+                style={{
+                  color: "red",
+                  backgroundColor: "rgb(255, 226, 226)",
+                }}>
+                Please fill this field
+              </h3>
+            ) : (
+              ""
+            )}
             <input
               value={title}
               onChange={(event) => setTitle(event.target.value)}
@@ -90,6 +103,17 @@ const DesingerHome = () => {
 
           <div>
             <label>Tags:</label>
+            {!tags && check ? (
+              <h3
+                style={{
+                  color: "red",
+                  backgroundColor: "rgb(255, 226, 226)",
+                }}>
+                Please fill this field
+              </h3>
+            ) : (
+              ""
+            )}
             <input
               value={tags}
               onChange={(event) => setTags(event.target.value)}
@@ -101,6 +125,17 @@ const DesingerHome = () => {
 
           <div>
             <label>Upload Image :</label>
+            {!imageurl && check ? (
+              <h3
+                style={{
+                  color: "red",
+                  backgroundColor: "rgb(255, 226, 226)",
+                }}>
+                Please fill this field
+              </h3>
+            ) : (
+              ""
+            )}
             <input
               // value={imageurl}
               onChange={uploadImage}
@@ -110,6 +145,17 @@ const DesingerHome = () => {
           </div>
           <div>
             <label>Added Cost :</label>
+            {!addedcost && check ? (
+              <h3
+                style={{
+                  color: "red",
+                  backgroundColor: "rgb(255, 226, 226)",
+                }}>
+                Please fill this field
+              </h3>
+            ) : (
+              ""
+            )}
             <input
               value={addedcost}
               onChange={(event) => setAddedconst(parseInt(event.target.value))}
@@ -119,6 +165,17 @@ const DesingerHome = () => {
           </div>
           <div>
             <label>Description :</label>
+            {!description && check ? (
+              <h3
+                style={{
+                  color: "red",
+                  backgroundColor: "rgb(255, 226, 226)",
+                }}>
+                Please fill this field
+              </h3>
+            ) : (
+              ""
+            )}
             <input
               value={description}
               onChange={(event) => setDescription(event.target.value)}

@@ -16,6 +16,7 @@ const ProductDetail = ({ productId, onClose }) => {
   // const user = useSelector(selectUser);
 
   const [logInAsk, setlogInAsk] = useState(false);
+  const [check, setCheck] = useState(false);
   // Selet items
   const [size, setSize] = useState("");
   const [type, setType] = useState("");
@@ -23,19 +24,23 @@ const ProductDetail = ({ productId, onClose }) => {
   const dispatch = useDispatch();
   const addOrderHandler = () => {
     if (token) {
-      dispatch(
-        postOrderProductItem({
-          size,
-          color,
-          type,
-          quantity: 1,
-          productId,
-        })
-      );
-      setSize("");
-      setColor("");
-      setType("");
-      onClose();
+      if (size && color && type) {
+        dispatch(
+          postOrderProductItem({
+            size,
+            color,
+            type,
+            quantity: 1,
+            productId,
+          })
+        );
+        setSize("");
+        setColor("");
+        setType("");
+        onClose();
+      } else {
+        setCheck(true);
+      }
     } else {
       setlogInAsk(true);
     }
@@ -74,8 +79,13 @@ const ProductDetail = ({ productId, onClose }) => {
             </div>
             <div className="typeselector">
               <label htmlFor="type">Type</label>
+
               <select
                 id="type"
+                style={{
+                  border: type.length < 1 && check ? "1px solid red" : "",
+                  color: type.length < 1 && check ? " red" : "",
+                }}
                 value={type}
                 onChange={(e) => setType(e.target.value)}>
                 <option value="" disabled>
@@ -92,6 +102,10 @@ const ProductDetail = ({ productId, onClose }) => {
               <select
                 id="color"
                 value={color}
+                style={{
+                  border: color.length < 1 && check ? "1px solid red" : "",
+                  color: color.length < 1 && check ? " red" : "",
+                }}
                 onChange={(e) => setColor(e.target.value)}>
                 <option value="" disabled>
                   Select
@@ -107,6 +121,10 @@ const ProductDetail = ({ productId, onClose }) => {
             <div className="sizeselector">
               <label htmlFor="size">size</label>
               <select
+                style={{
+                  border: size.length < 1 && check ? "1px solid red" : "",
+                  color: size.length < 1 && check ? " red" : "",
+                }}
                 id="color"
                 value={size}
                 onChange={(e) => setSize(e.target.value)}>
