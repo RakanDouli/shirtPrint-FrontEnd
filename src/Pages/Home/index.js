@@ -17,20 +17,6 @@ const Products = () => {
     dispatch(fetchproducts());
   }, [dispatch]);
 
-  // const Ascending = [...products].sort((a, b) =>
-  //   a.cost + a.addedcost > b.cost + b.addedcost ? 1 : -1
-  // );
-  // console.log("filterasc", Ascending);
-
-  // const Descending = [...products].sort((a, b) =>
-  //   a.cost + a.addedcost < b.cost + b.addedcost ? 1 : -1
-  // );
-  // console.log("filterdesc", Descending);
-  // const mostrelevent = products.sort((a, b) =>
-
-  // );
-  // console.log("filterdesc", mostrelevent);
-
   const search = products?.filter((product) => {
     const tag = product.tags.replace(/[^a-z0-9]/gi, " ");
     return (
@@ -41,7 +27,20 @@ const Products = () => {
       tag.toLocaleLowerCase().includes(searchTerm.toLocaleLowerCase())
     );
   });
-  // console.log("search", search);
+
+  let filtered = [];
+  if (filter === "price-ascending") {
+    filtered = [...search].sort((a, b) =>
+      a.cost + a.addedcost > b.cost + b.addedcost ? 1 : -1
+    );
+  } else if (filter === "price-descending") {
+    filtered = [...search].sort((a, b) =>
+      a.cost + a.addedcost < b.cost + b.addedcost ? 1 : -1
+    );
+  } else {
+    filtered = search;
+  }
+
   return (
     <div>
       <Banner />
@@ -77,7 +76,7 @@ const Products = () => {
         ) : search.length === 0 ? (
           "No products found"
         ) : (
-          search.map((product) => {
+          filtered.map((product) => {
             return (
               <ProductComponents
                 key={product.id}
