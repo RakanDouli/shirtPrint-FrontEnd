@@ -25,13 +25,13 @@
     }
     width: 100%;
     .image {
-      background-image: url(../images/image.png);
       background-position: center;
       background-size: contain;
       border: 1px solid rgba(126, 126, 126, 0.493);
       width: 30rem;
       height: 25rem;
       margin: 2rem;
+      padding: 1rem;
       img {
         width: 100%;
         height: 100%;
@@ -184,4 +184,9 @@
       }
     }
   }
+}
+.cost::-webkit-outer-spin-button,
+.cost::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
 }

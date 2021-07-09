@@ -10,6 +10,7 @@ import {
 import { selectProducts } from "../../store/products/selectors";
 import { fetchproducts } from "../../store/products/actions";
 import Historyproducts from "../../components/Historyproducts";
+import image from "../../images/image.png";
 
 const DesingerHome = () => {
   const [title, setTitle] = useState("");
@@ -100,7 +101,6 @@ const DesingerHome = () => {
               required
             />
           </div>
-
           <div>
             <label>Tags:</label>
             {!tags && check ? (
@@ -122,7 +122,6 @@ const DesingerHome = () => {
               required
             />
           </div>
-
           <div>
             <label>Upload Image :</label>
             {!imageurl && check ? (
@@ -157,10 +156,12 @@ const DesingerHome = () => {
               ""
             )}
             <input
+              className="cost"
               value={addedcost}
               onChange={(event) => setAddedconst(parseInt(event.target.value))}
               type="number"
               placeholder="Number"
+              min="0"
             />
           </div>
           <div>
@@ -190,7 +191,13 @@ const DesingerHome = () => {
             </button>
           </div>
         </form>
-        <div className="image">
+        <div
+          className="image"
+          style={
+            imageurl
+              ? { backgroundColor: "#ececec" }
+              : { backgroundImage: ` url(${image})` }
+          }>
           {imageurl ? <img src={imageurl} alt="" /> : ""}
         </div>
       </div>
