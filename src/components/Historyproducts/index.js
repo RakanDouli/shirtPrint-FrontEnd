@@ -46,7 +46,9 @@ const Historyproducts = ({
   };
 
   // delete
-  const deleteHandler = () => {
+  const [deleteconfirm, setDeleteConfirm] = useState(false);
+
+  const deleteHandler = (e) => {
     dispatch(deleteProduct({ id }));
     window.location.reload();
   };
@@ -127,9 +129,27 @@ const Historyproducts = ({
           ) : (
             <button onClick={editHandler}>Edit</button>
           )}
-          <button onClick={deleteHandler}>Delete</button>
+
+          <button onClick={(e) => setDeleteConfirm(true)}>Delete</button>
         </li>
       </ul>
+      <div
+        className="deletewarn"
+        style={deleteconfirm ? { display: "block" } : { display: "none" }}>
+        <div
+          className="closebg"
+          style={deleteconfirm ? { display: "flex" } : { display: "none" }}>
+          <h3>
+            Are you sure you want to <span>DELETE</span> this?
+          </h3>
+          <div>
+            <button onClick={deleteHandler}>Delete</button>
+            <button onClick={(e) => setDeleteConfirm(false)}>
+              Cancel
+            </button>{" "}
+          </div>
+        </div>
+      </div>
     </div>
   );
 };
